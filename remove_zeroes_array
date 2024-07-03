@@ -1,0 +1,24 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n = nums.length;
+        int[] temp = new int[n];
+        int index = 0;
+
+        // Store all non-zero elements in the temp array
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {
+                temp[index] = nums[i];
+                index++;
+            }
+        }
+
+        // Copy the elements back to the original array
+        for (int i = 0; i < n; i++) {
+            if (i < index) {
+                nums[i] = temp[i];
+            } else {
+                nums[i] = 0;
+            }
+        }
+    }
+}
